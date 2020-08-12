@@ -46,7 +46,7 @@ if GetKeyState("CapsLock", "T") = 1 {
 MenuHandler:
 if (A_ThisMenuItemPos = 1) {
     Send ^v
-} else if (A_ThisMenuItemPos = 2) {
+} else {
     Send ^B
 }
 return
