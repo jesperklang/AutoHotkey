@@ -2,11 +2,6 @@
 
 SetCapsLockState, AlwaysOff
 
-; Replace Ctrl+B with a dialog if is was Ctrl+V that should have been done, or if Ctrl+B really was the intention
-Menu, MyMenu, Add, Ctrl+V, MenuHandler
-Menu, MyMenu, Add, Ctrl+B, MenuHandler
-^B::Menu, MyMenu, Show
-
 ; Capslock + wasd (left, down, up, right)
 Capslock & a::Send {Blind}{Left DownTemp}
 Capslock & a up::Send {Blind}{Left Up}
@@ -42,11 +37,3 @@ if GetKeyState("CapsLock", "T") = 1 {
     SetCapsLockState, AlwaysOn
     return
 }
-
-MenuHandler:
-if (A_ThisMenuItemPos = 1) {
-    Send ^v
-} else {
-    Send ^B
-}
-return
